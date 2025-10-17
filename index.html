@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Rinto Pati Ani</title>
+  <link rel="icon" href="assets/favicon.ico">
+
+  <style>
+    :root {
+      --accent: #0b7285;
+      --bg: #f7fafc;
+      --text: #102a43;
+      --muted: #525f7f;
+      --card: #ffffff;
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* ====== Layout Containers ====== */
+    .container {
+      max-width: var(--max-width);
+      margin: 24px auto;
+      padding: 18px;
+    }
+
+    header.header {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 6px 18px rgba(16, 42, 67, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .brand h1 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .nav {
+      margin-left: auto;
+    }
+
+    .nav a {
+      margin-left: 12px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav a.active {
+      color: var(--accent);
+    }
+
+    main.main {
+      background: var(--card);
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(16, 42, 67, 0.04);
+    }
+
+    footer.footer {
+      margin-top: 18px;
+      padding: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ====== Hero Section ====== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 18px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    /* ====== About Section ====== */
+    .profile-photo {
+      width: 150px;
+      max-width: 200px;
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+
+    .lists {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .lists ol,
+    .lists ul {
+      background: #fbfdff;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    /* ====== Gallery Section ====== */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .gallery figure {
+      flex: 1 1 calc(33% - 24px);
+      min-width: 180px;
+      max-width: 320px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 880px) {
+      .gallery figure {
+        flex: 1 1 calc(50% - 24px);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gallery figure {
+        flex: 1 1 100%;
+      }
+    }
+
+    /* ====== Registration Form ====== */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 680px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-grid input,
+    .form-grid textarea,
+    .form-grid select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #dbe6ef;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      text-align: right;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    a:focus,
+    button:focus,
+    input:focus {
+      outline: 3px solid rgba(11, 114, 133, 0.16);
+      outline-offset: 2px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .content-inner {
+      padding: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+      <div class="brand">
+        <img src="foto1.jpg" alt="Foto profil Rinto Pati Ani">
+        <div>
+          <h1>Rinto Pati Ani</h1>
+          <div class="small">Student | Web Enthusiast | Content Creator</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#holiday">My Holiday</a>
+        <a href="#registration">Registration</a>
+      </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+
+      <!-- HOME SECTION -->
+      <section id="home" class="content-inner">
+        <div class="hero">
+          <div>
+            <h2>Halo — Saya Rinto Pati Ani</h2>
+            <p>Saya mahasiswa Universitas Advent Indonesia yang memiliki ketertarikan pada pengembangan web, desain visual, dan pembuatan konten digital. Melalui website ini, saya membagikan sedikit tentang diri saya, galeri liburan, serta formulir pendaftaran interaktif.</p>
+            <p class="small">Teknologi: HTML5 • CSS Grid • Flexbox • Responsif</p>
+          </div>
+          <div>
+            <img src="foto2.jpg" alt="Foto Rinto Pati Ani">
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-inner">
+        <h1>Perkenalan Singkat</h1>
+
+        <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;">
+          <img src="foto3.jpg" alt="Foto Rinto Pati Ani" class="profile-photo">
+          <div>
+            <h2>Saya Rinto Pati Ani</h2>
+            <p>Saya mahasiswa aktif di Universitas Advent Indonesia. Saya sangat tertarik dengan teknologi, terutama dalam hal pengembangan web dan pengalaman pengguna (UX). Saya juga menikmati mempelajari desain dan eksplorasi konten digital kreatif.</p>
+
+            <h3>Pengalaman Singkat</h3>
+            <h4>Proyek Web</h4>
+            <p>Beberapa proyek kecil yang telah saya buat meliputi situs portfolio, halaman galeri, serta formulir pendaftaran berbasis HTML dan CSS.</p>
+          </div>
+        </div>
+
+        <section class="headers-demo">
+          <h1>Header H1</h1>
+          <h2>Header H2</h2>
+          <h3>Header H3</h3>
+          <h4>Header H4</h4>
+          <h5>Header H5</h5>
+          <h6>Header H6</h6>
+        </section>
+
+        <section class="lists">
+          <div>
+            <h3>Prioritas Hobi</h3>
+            <ol>
+              <li>Desain Web</li>
+              <li>Fotografi</li>
+              <li>Mendengarkan Podcast</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>Hobi Lainnya</h3>
+            <ul>
+              <li>Membaca buku motivasi</li>
+              <li>Menulis catatan refleksi</li>
+              <li>Menjelajahi kafe lokal</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- HOLIDAY SECTION -->
+      <section id="holiday" class="content-inner">
+        <h2>Galeri Liburan Saya</h2>
+        <p class="small">Beberapa momen liburan favorit saya yang penuh kenangan.</p>
+
+        <section class="gallery">
+          <figure><img src="foto4.jpg" alt="Pemandangan pantai"><figcaption>Pantai</figcaption></figure>
+          <figure><img src="foto5.jpg" alt="Hutan pinus"><figcaption>Hutan</figcaption></figure>
+          <figure><img src="foto6.jpg" alt="Kota tua"><figcaption>Kota Tua</figcaption></figure>
+          <figure><img src="foto7.jpg" alt="Kafe hangat"><figcaption>Kafe</figcaption></figure>
+          <figure><img src="foto8.jpg" alt="Air terjun"><figcaption>Air Terjun</figcaption></figure>
+          <figure><img src="foto9.jpg" alt="Pasar malam"><figcaption>Pasar</figcaption></figure>
+          <figure><img src="foto10.jpg" alt="Puncak bukit"><figcaption>Bukit</figcaption></figure>
+        </section>
+      </section>
+
+      <!-- REGISTRATION SECTION -->
+      <section id="registration" class="content-inner">
+        <h2>Form Pendaftaran</h2>
+
+        <form action="#" method="post">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" id="fullname" placeholder="Rinto Pati Ani" required>
+            </div>
+
+            <div class="form-group">
+              <label for="birthdate">Birth Date</label>
+              <input type="date" id="birthdate" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+62..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="rinto@example.com" required>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="address">Address</label>
+              <textarea id="address" rows="3" placeholder="Alamat lengkap..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="town">Town / City</label>
+              <input type="text" id="town" placeholder="Bandung" required>
+            </div>
+
+            <div class="form-group">
+              <label for="zip">Zip Code</label>
+              <input type="text" id="zip" placeholder="40132" required>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      © <span id="year"></span> Rinto Pati Ani
+    </footer>
+  </div>
+
+  <script>
+    // Menampilkan tahun otomatis di footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
